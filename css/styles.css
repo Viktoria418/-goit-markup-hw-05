@@ -17,8 +17,9 @@
 	--background-portfolio-btn: #eeeeee;
 	--color-portfolio-btn: #212121;
 	--color-text-products: #212121;
-
 	--background-color-portfolio: #ffffff;
+	--transition-animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-animation-modal: 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 h1,
 h2,
@@ -71,7 +72,23 @@ body {
 	display: flex;
 	gap: 30px;
 }
-
+.addition {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 70px;
+	background: rgba(47, 48, 58, 0.8);
+	font-size: 14px;
+		line-height: 1.14;
+		text-align: center;
+		text-transform: uppercase;	
+		color: var(--color-text-darkbox);
+		padding-top: 27px;
+		padding-bottom: 27px;
+}
+.activity-item {
+	position: relative;
+}
 .section-title {
 	font-weight: 700;
 	font-size: 36px;
@@ -103,6 +120,7 @@ body {
 
 .site-nav {
 	background-color: var(--background-color-header);
+	
 }
 
 .page-header {
@@ -119,6 +137,7 @@ body {
 .site-nav-link {
 	color: var(--color-nav-header);
 	padding: 30px 0;
+	transition: color var(--transition-animation);
 }
 .site-nav {
 	display: flex;
@@ -155,6 +174,20 @@ body {
 }
 .current-link {
 	color: #2196f3;
+	position: relative;
+}
+
+.current-link::after {
+	content: "";
+	width: 100%;
+		height: 4px;
+		/* left: 451px; */
+		/* top: 76px;	 */
+		background: #2196F3;
+		border-radius: 2px;
+		position: absolute;
+		bottom: 0;
+left: 0;
 }
 .contacts-link {
 	color: var(--color-contact);
@@ -168,6 +201,7 @@ body {
 	display: flex;
 	align-items: center;
 	margin-left: auto;
+	
 }
 .fon {
 	margin-right: 50px;
@@ -178,6 +212,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	fill: currentColor;
+	transition: color var(--transition-animation);
 }
 
 .contacts-item {
@@ -330,11 +365,15 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: color var(--transition-animation), border-color var(--transition-animation);
+
+	
 }
 .clients-link:hover,
 .clients-link:focus {
 	color: var(--color-accent);
 	border-color: var(--color-accent);
+
 }
 
 .clients-company {
@@ -381,10 +420,14 @@ body {
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
+	transition: background-color var(--transition-animation);
+	
+
 }
 .social-footer-link:hover,
 .social-footer-link:focus {
 	background-color: var(--color-accent);
+	
 }
 
 .footer-icon {
@@ -393,6 +436,7 @@ body {
 
 .footer-contact {
 	color: var(--color-foot-adr);
+	transition: color var(--transition-animation);
 }
 .foot-links {
 	text-transform: uppercase;
@@ -407,11 +451,15 @@ body {
 .footer-contacts-item {
 	margin-bottom: 9px;
 }
+.footer-contact-adr {
+	transition: color var(--transition-animation);
+}
 .footer-contacts-item:last-child {
 	margin-bottom: 0;
 }
 .footer-contacts {
 	margin-top: 20px;
+	
 }
 
 .portfolio-btn {
@@ -469,12 +517,15 @@ body {
 .footer-contacts :hover,
 .footer-contacts :focus {
 	color: var(--color-accent);
+	
+	
 }
 .portfolio-btn:hover,
 .portfolio-btn:focus {
 	background-color: var(--color-accent);
 	color: var(--color-text-darkbox);
 	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+
 }
 
 .visually-hidden {
@@ -497,11 +548,13 @@ body {
 
 .portf-link {
 display: block;
+transition: box-shadow var(--transition-animation);
+
 }
 
 .portf-link-wrapper {
 position: relative;
-/* overflow: hidden; */
+overflow: hidden;
 }
 
 .overlay {
@@ -518,9 +571,10 @@ position: relative;
 	width: 100%;
 	overflow: auto;
 transform: translateY(100%);
-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+transition: transform var(--transition-animation);
+
 }
-.portf-link:hover .overlay
+.portf-link:hover .overlay,
 .portf-link:focus .overlay {
 	transform: translateY(0);
 }
@@ -528,6 +582,7 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 .portf-link:hover,
 .portf-link:focus {
 box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+
 }
 
 .products-nav {
@@ -546,6 +601,7 @@ box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1p
 	border: none;
 	align-items: center;
 	border-radius: 4px;
+	transition: color var(--transition-animation), background-color var(--transition-animation), box-shadow var(--transition-animation);
 }
 
 .social-list {
@@ -563,17 +619,79 @@ box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1p
 	height: 44px;
 	border-radius: 50%;
 	background-color: #ffffff;
+	transition: background-color var(--transition-animation);
 }
 
 .social-list-link {
 	fill: #afb1b8;
+	transition: background-color var(--transition-animation);
 }
 .social-list-link:hover,
 .social-list-link:focus {
 	background-color: var(--color-accent);
 }
+.social-icon {
+transition: fill var(--transition-animation);
+}
 
-.social-list-link:hover .cosial-icon,
-.social-list-link:focus .cosial-icon {
+.social-list-link:hover .social-icon,
+.social-list-link:focus .social-icon {
 	fill: #ffffff;
+	
+}
+
+.blackdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.2);
+	z-index: 100;
+	opacity: 1;	
+	transition: opacity var(--transition-animation-modal), visibility var(--transition-animation-modal);
+
+}
+.is-hidden {
+	visibility: hidden;
+	opacity:0 ;
+	pointer-events:none ;
+}
+.blackdrop.is-hidden .modal {
+	background-color: blue;
+	transform: translate(-50%, -50%) rotate(360deg);
+	
+	
+	
+}
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/* transform: translate(-50%, -50%); */
+	width: 528px;
+	height: 580px;
+	/* background: #FFFFFF; */
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	transform: translate(-50%, -50%) rotate(0deg);
+transition: transform var(--transition-animation-modal), background-color var(--transition-animation-modal);
+}
+
+
+.modal-close-btn {
+	position: absolute;
+	top: 8px;	
+	right: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	
+	
 }
